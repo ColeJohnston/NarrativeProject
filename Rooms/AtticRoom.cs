@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace NarrativeProject.Rooms
 {
@@ -20,7 +20,7 @@ You can return to your [bedroom].
                     Console.WriteLine("You return to your bedroom.");
                     Game.Transition<Bedroom>();
                     break;
-                case "2314":
+                case "42069":
                     Console.WriteLine("The chest opens and you get a key.");
                     isKeyCollected = true;
                     break;

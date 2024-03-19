@@ -10,6 +10,7 @@ namespace NarrativeProject.Rooms
 The [door] in front of you leads to your living room.
 Your private [bathroom] is to your left.
 From your closet, you see the [attic].
+The [livingroom] is on your right
 ";
 
         internal override void ReceiveChoice(string choice)
@@ -34,6 +35,10 @@ From your closet, you see the [attic].
                 case "attic":
                     Console.WriteLine("You go up and enter your attic.");
                     Game.Transition<AtticRoom>();
+                    break;
+                case "livingroom":
+                    Console.WriteLine("You travel to the Living room");
+                    Game.Transition<Livingroom>();
                     break;
                 default:
                     Console.WriteLine("Invalid command.");
