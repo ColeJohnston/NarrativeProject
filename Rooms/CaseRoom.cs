@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjectTemp.Rooms
@@ -16,7 +17,9 @@ namespace ProjectTemp.Rooms
             }
             else if (!beatR[0])
             {
-                Console.WriteLine("\noingus boingus we are here");
+                Console.WriteLine("\nYou approach the second room, this room is much louder and upon inspecting the walls, " +
+                    "\nyou see the same letters from before but with a mix of capital and lowercase letters. Just as you realize this, " +
+                    "\nyour second challenge appears and begins to speak:");
             }
             else if (!beatR[1])
             {
@@ -26,6 +29,8 @@ namespace ProjectTemp.Rooms
             {
                 //final time in room 2
             }
+            Thread.Sleep(15000);
+            Console.Clear();
             Fighting.Fight();
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjectTemp.Rooms
@@ -16,7 +17,8 @@ namespace ProjectTemp.Rooms
             }
             else if (!beatR[0])
             {
-                Console.WriteLine("Penis");
+                Console.WriteLine("You begin to notice the ramping difficulty. This room seems to have everything ranging from a-Z as well as 0-9 scribbled on the walls, " +
+                    "\nceiling and even the floor you’re walking on. As expected, beast number 3 appears hootin and hollerin");
                 //intro to room 3
             }
             else if (!beatR[1])
@@ -27,6 +29,8 @@ namespace ProjectTemp.Rooms
             {
                 //final time in room 3
             }
+            Thread.Sleep(15000);
+            Console.Clear();
             Fighting.Fight();
         }
     }

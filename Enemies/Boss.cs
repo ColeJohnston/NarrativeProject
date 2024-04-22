@@ -16,7 +16,7 @@ namespace ProjectTemp.Enemies
         internal override void sethp(int level, int round)
         {
             hp = ((level + (5 * (round - 1))) * 3);
-            hp = 1;
+            hp = 100;
         }
         internal override void setword()
         {

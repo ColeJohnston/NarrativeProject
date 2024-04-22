@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -35,6 +36,8 @@ namespace ProjectTemp.Rooms
                 Console.WriteLine("You arrive again, for the final time. Knowing this beast will be even tougher this time." +
                     "\n it appears again, just as it did twice before, and begins to speak");
             }
+            Thread.Sleep(15000);
+            Console.Clear();
             Fighting.Fight();
         }
     }

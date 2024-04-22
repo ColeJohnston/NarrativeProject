@@ -20,16 +20,23 @@ namespace ProjectTemp
         public static bool doubler = false;
         internal void CharacterSelect()
         {
-            Console.WriteLine("Which character would you like");
-            Console.WriteLine("Difference or Trade-Off");
+            Console.WriteLine("\n\nMake your choice");
+            Console.WriteLine("[Difference] or [Trade-Off]");
             string selection = Console.ReadLine().ToLower();
             if(selection == "difference")
             {
-                Console.WriteLine("MASSIVE FUCKING COCk");
+                Console.WriteLine("You selected Difference, Stay smart");
+                Console.WriteLine("[Press Enter]");
+                Console.ReadLine();
+                Console.Clear();
                 difference = true;
             }
             else if(selection == "trade-off")
             {
+                Console.WriteLine("You selected Trade-Off, Stay strong");
+                Console.WriteLine("[Press Enter]");
+                Console.ReadLine();
+                Console.Clear();
                 difference = false;
             }
         }
