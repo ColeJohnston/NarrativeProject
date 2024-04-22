@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjectTemp
@@ -58,6 +59,7 @@ namespace ProjectTemp
                 case 2:
                     while (Player.hp > 0 && Enemy.hp > 0)
                     {
+                        Console.WriteLine(Player.Parts[0]);
                         CaE.setword();
                     }
                     break;

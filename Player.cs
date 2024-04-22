@@ -15,7 +15,7 @@ namespace ProjectTemp
         public static bool difference;
         static public int hp;
         static public int shield = 0;
-        static List<string> Parts = new List<string>();
+        static public List<string> Parts = new List<string>();
         static List<string> Items = new List<string>();
         public static bool doubler = false;
         internal void CharacterSelect()
@@ -39,6 +39,50 @@ namespace ProjectTemp
                 Console.Clear();
                 difference = false;
             }
+        }
+        internal static void RemoveLimbs()
+        {
+            int i = 1;
+            foreach(string part in Parts)
+            {
+                i++;
+            }
+            Console.WriteLine(i);
+            Console.WriteLine("PART 1: " + Parts[0]);
+            if(i == 5)
+            {
+                if (Parts[0] == "arms1")
+                {
+                    Console.WriteLine("You inserted the 5 pairs of arms into the 5 seperate holes." +
+                        "\n you hear clicking but nothing else happens.");
+                }
+                else if (Parts[0] == "legs1")
+                {
+                    Console.WriteLine("You inserted the 5 pairs of legs into the leg holes." +
+                        "\n there is more clicking but nothing else.");
+                }
+                else
+                {
+                    Console.WriteLine("You inserted the final set of parts into the holes. Suddenly a door begins to open.");
+                }
+            }
+            else if(i == 10)
+            {
+                if (Parts[0] == "arms1")
+                {
+                    Console.WriteLine("You inserted the arms and legs into their respective holes." +
+                        "\n You hear lots of clicking but nothing seems to budge.");
+                }
+                else
+                {
+                    Console.WriteLine("You inserted the final set of part into their respective holes. Suddenly a door begins to open.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("You inserted each complete monster into a slot in the wall. Suddenly a door begins to open.");
+            }
+            Parts.Clear();
         }
         internal void SetHp()
         {
@@ -65,13 +109,15 @@ namespace ProjectTemp
         }
         internal static void ShowInventory()
         {
-            Console.WriteLine("Consumables:");
+            Console.WriteLine("Consumables" +
+                            "\n-----------");
             foreach (var item in Items)
             {
-                Console.Write(item + ", ");
+                Console.WriteLine(item + ", ");
             }
-            Console.WriteLine("\nParts:");
-            foreach(var item in Parts) { Console.Write(item + ", ");}
+            Console.WriteLine("\n\nParts:" +
+                "\n-----");
+            foreach(var item in Parts) { Console.WriteLine(item + ", ");}
         }
         internal static void UseItem()
         {

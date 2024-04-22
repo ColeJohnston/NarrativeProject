@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjectTemp.Rooms
@@ -20,18 +21,28 @@ namespace ProjectTemp.Rooms
             }
             else
             {
-                Console.WriteLine("Now that the boss is dead, You can saftely nap.");
+                string temp;
+                Console.WriteLine("The boss is dead, it seems, and now that he is out of the way, you notice 5 monster shaped holes in the wall...");
+                Console.WriteLine("Come to think of it, you've collected many body parts... eww. Would you like to maybe insert those into the slots in the wall?" +
+                    "\n or would you like to hold on to those." +
+                    "\n[Hold] or [Insert]");
+                temp = Console.ReadLine().ToLower();
+                if(temp == "insert")
+                {
+                    Player.RemoveLimbs();
+                }
+                else { Console.WriteLine("Eww"); }
+                Console.WriteLine("The boss had a very comfy bed and now that he is disposed of, You can saftely nap.");
                 Console.WriteLine("Napping restores 50% of your missing hp, but gives you 25% less reading time for future words");
                 Console.WriteLine("Would you like to nap?");
                 Console.WriteLine("[Y] or [N]");
-                string temp;
                 temp = Console.ReadLine().ToUpper();
                 if(temp == "Y")
                 {
                     Player.nap();
                     Console.WriteLine("NEW HP: " + Player.hp);
                 }
-                Console.WriteLine($"\nWow!! you beat boss {round}/3, Congrats. Now you can choose One item from the shop");
+                Console.WriteLine($"\nSince you beat boss {round}/3 you can choose One item from the shop");
                 Collectables.shop();
             }
             string choice = Console.ReadLine();
@@ -48,7 +59,11 @@ namespace ProjectTemp.Rooms
                         choice = Console.ReadLine();
                         if (choice == "Sit")
                         {
-                            //start 15 second timer
+                            for(int i = 15; i > 0; i--)
+                            {
+                                Console.WriteLine(i);
+                                Thread.Sleep(1000);
+                            }
                             Console.WriteLine("YOU FOUND SOMETHING!!!" +
                                 "\nPress enter to read it");
                             Console.ReadLine();
@@ -111,7 +126,7 @@ namespace ProjectTemp.Rooms
             Console.WriteLine("You've collected [" + parts[round - 1] + level + "]");
             Player.PartAdd(parts[round - 1] + level);
             Player.ShowInventory();
-            Console.WriteLine("[Continue] to the next room");
+            Console.WriteLine("\n[Press Enter] to continue to the next room");
             Console.ReadLine();
         }
     }
