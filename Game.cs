@@ -20,7 +20,7 @@ namespace ProjectTemp
         static Room bossroom = new BossRoom();
         //done
 
-        static public int level = 5;
+        static public int level = 1;
         static public int round = 1;
         static int CurrentRoom = 1;
         static bool[] beatR = new bool[3];

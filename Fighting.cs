@@ -29,7 +29,6 @@ namespace ProjectTemp
                     CaE.sethp(level, round);
                     break;
                 case 3:
-                    Console.WriteLine("LEVEL: " + level);
                     NE.setwordLength(level, round);
                     NE.sethp(level, round);
                     break;
@@ -48,21 +47,17 @@ namespace ProjectTemp
             Fighting.StartFight();
             int level = Game.level;
             int round = Game.round;
-            Console.WriteLine("LOOK HERE FUCKER: " + level);
             switch (level)
             {
                 case 1:
                     while(Player.hp > 0 && Enemy.hp > 0)
                     {
-                        Console.WriteLine("LEVEL: " + level);
-                        Console.WriteLine(Player.hp);
                         ChE.setword();
                     }
                     break;
                 case 2:
                     while (Player.hp > 0 && Enemy.hp > 0)
                     {
-                        Console.WriteLine("HP" + Enemy.hp);
                         CaE.setword();
                     }
                     break;
