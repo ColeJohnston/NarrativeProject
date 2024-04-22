@@ -86,8 +86,8 @@ namespace ProjectTemp.Enemies
             }
             else
             {
-                updatehp(dealt);
                 Player.updatehp(recieved);
+                updatehp(dealt);
                 dealt = 0;
                 recieved = 0;
             }
