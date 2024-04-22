@@ -23,10 +23,16 @@ namespace ProjectTemp.Rooms
             }
             else if (!beatR[1])
             {
+                Console.WriteLine("Back to the number room… maybe you’ll try running. No, you know that wont work. " +
+                    "\nYou fear the worst for your dad. He can't die, you can't let it happen. " +
+                    "\nFeeling this courage filling your veins you challenge the beast again");
                 //second time in room 3
             }
             else
             {
+                Console.WriteLine("So many numbers, so many letters, so much chaos. The walls feel as though they are creeping in. " +
+                    "\nYou feel stuck. You feel so small in such a big world. How can one feel so closed in while feeling so little. " +
+                    "\nThe beast has arrived again.");
                 //final time in room 3
             }
             Thread.Sleep(15000);

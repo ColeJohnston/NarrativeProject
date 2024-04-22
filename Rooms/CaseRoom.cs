@@ -23,10 +23,14 @@ namespace ProjectTemp.Rooms
             }
             else if (!beatR[1])
             {
+                Console.WriteLine("You arrive here again. Its not too hard. You ready yourself as the beast appears from the shadows once again. " +
+                    "\nThe beast shouts");
                 //second time in room 2
             }
             else
             {
+                Console.WriteLine("This is insane. Are you going insane? What is going on here? The walls are moving, the floor is shaking. " +
+                    "\nYou're beginning to feel nauseous and dizzy the longer you stay. Focus up, the beast is here again");
                 //final time in room 2
             }
             Thread.Sleep(15000);

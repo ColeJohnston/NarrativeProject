@@ -26,10 +26,20 @@ namespace ProjectTemp.Rooms
             }
             else if (!beatR[1])
             {
+                Console.WriteLine("These symbols. Do they mean something? It's definitely an odd decorative choice. " +
+                    "\nWho would want to be surrounded by this in their home? Do the monsters even want to be here? " +
+                    "\nBefore you can even answer your own questions, the beast appears again");
                 //second time in room 4
             }
             else
             {
+                Console.WriteLine("The symbols, they are getting to you. You close your eyes. All you see is more symbols.");
+                for(int i = 0; i < 10; i++)
+                {
+                    Console.WriteLine("MORE");
+                    Thread.Sleep(5 / i);
+                }
+                Console.WriteLine("MORE Symbols. You can't stop, you can't get this out of your mind. You can never escape. It is back again\");");
                 //final time in room 4
             }
             Thread.Sleep(25000);
