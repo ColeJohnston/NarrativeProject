@@ -43,14 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collectables.cs" />
+    <Compile Include="Enemies\Boss.cs" />
+    <Compile Include="Enemies\CaseEnemy.cs" />
+    <Compile Include="Enemies\CharacterEnemy.cs" />
+    <Compile Include="Enemies\Enemy.cs" />
+    <Compile Include="Enemies\NumberEnemy.cs" />
+    <Compile Include="Enemies\SymbolEnemy.cs" />
+    <Compile Include="Fighting.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="Rooms\AtticRoom.cs" />
-    <Compile Include="Rooms\Bathroom.cs" />
-    <Compile Include="Rooms\Bedroom.cs" />
-    <Compile Include="Rooms\Livingroom.cs" />
+    <Compile Include="Rooms\BossRoom.cs" />
+    <Compile Include="Rooms\CaseRoom.cs" />
+    <Compile Include="Rooms\CharacterRoom.cs" />
+    <Compile Include="Rooms\NumberRoom.cs" />
+    <Compile Include="Rooms\Room.cs" />
+    <Compile Include="Rooms\SymbolRoom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

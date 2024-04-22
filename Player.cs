@@ -41,7 +41,7 @@ namespace ProjectTemp
             }
             else
             {
-                hp = 100;
+                hp = 50;
             }
         }
         internal static void showitems()

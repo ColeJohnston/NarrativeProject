@@ -20,6 +20,17 @@ namespace ProjectTemp.Rooms
             }
             else
             {
+                Console.WriteLine("Now that the boss is dead, You can saftely nap.");
+                Console.WriteLine("Napping restores 50% of your missing hp, but gives you 25% less reading time for future words");
+                Console.WriteLine("Would you like to nap?");
+                Console.WriteLine("[Y] or [N]");
+                string temp;
+                temp = Console.ReadLine().ToUpper();
+                if(temp == "Y")
+                {
+                    Player.nap();
+                    Console.WriteLine("NEW HP: " + Player.hp);
+                }
                 Console.WriteLine($"\nWow!! you beat boss {round}/3, Congrats. Now you can choose One item from the shop");
                 Collectables.shop();
             }
