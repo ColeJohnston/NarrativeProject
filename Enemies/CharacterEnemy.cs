@@ -9,7 +9,7 @@ namespace ProjectTemp.Enemies
     internal class CharacterEnemy : Enemy
     {
         static int WordLength;
-        static double time = 5;
+        static double time = Math.Round(5.0 / (4 - Game.round), 3);
         private string options = "abcdefghijklmnopqrstuvwxyz";
         internal override void sethp(int level, int round)
         {

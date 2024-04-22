@@ -11,7 +11,7 @@ namespace ProjectTemp.Enemies
     {
 
         static int WordLength;
-        static double time = 15;
+        static double time = Math.Round(15.0 / (4 - Game.round), 3);
         private string options = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()";
         internal override void sethp(int level, int round)
         {
