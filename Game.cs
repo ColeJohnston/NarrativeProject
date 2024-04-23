@@ -1,17 +1,21 @@
 ﻿using ProjectTemp.Enemies;
 using ProjectTemp.Rooms;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Security;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Specialized;
 
 namespace ProjectTemp
 {
     internal class Game
     {
+        static SaveData savedata;
         //initialize rooms
         static Room characterroom = new CharacterRoom();
         static Room caseroom = new CaseRoom();
@@ -22,14 +26,13 @@ namespace ProjectTemp
 
         static public int level = 1;
         static public int round = 1;
-        static int CurrentRoom = 1;
+        static int NewRoom;
         static bool[] beatR = new bool[3];
         static bool[] beatL = new bool[5];
         public static void complete()
         {
-            
             Room.complete(beatR, level, round);
-            if(level != 5)
+            if (level != 5)
             {
                 beatL[level - 1] = true;
                 level++;
@@ -40,6 +43,7 @@ namespace ProjectTemp
                 level = 1;
                 round++;
             }
+            CreateSave();
         }
         public static void introduction()
         {
@@ -104,7 +108,7 @@ namespace ProjectTemp
         public static void showHp()
         {
             Console.WriteLine("\nPLAYER HP: " + Player.hp + "\t \t \tENEMY HP: " + Enemy.hp);
-            if(Player.shield > 0)
+            if (Player.shield > 0)
             {
                 Console.WriteLine("SHIELD: " + Player.shield);
             }
@@ -116,10 +120,10 @@ namespace ProjectTemp
             int temp = 1;
             for (int i = 1; i <= beatL.Length; i++)
             {
-                if (beatL[i]) 
+                if (beatL[i])
                 {
                     temp++;
-                    message += $"[{i}] "; 
+                    message += $"[{i}] ";
                 }
                 else
                 {
@@ -129,9 +133,13 @@ namespace ProjectTemp
             Console.WriteLine(message);
             do
             {
-                CurrentRoom = int.Parse(Console.ReadLine());
-            } while (CurrentRoom > temp);
-            ChangeRoom(CurrentRoom);
+                try
+                {
+                    NewRoom = int.Parse(Console.ReadLine());
+                }
+                catch { }
+            } while (NewRoom > temp);
+            ChangeRoom(NewRoom);
         }
         public static void ChangeRoom(int choice)
         {
@@ -165,6 +173,60 @@ namespace ProjectTemp
                 "\nYou stare at your dad picturing what your life would have been like without him. He notices this and interrupts your thoughts saying " +
                 "\n\"Holy shit you smell bad.\"" +
                 "\nHe's probably right, all of this monster slaying really stank you up");
+        }
+        public static void CreateSave()
+        {
+            const string Save = "Save.txt";
+            using (FileStream fileStream = File.Create(Save))
+            {
+                savedata = new SaveData(Player.created, Player.difference, Player.shield, Player.doubler, Enemy.nap, level, round, Player.Items, Player.Parts,
+                    Collectables.amount, Collectables.used, Player.hp, Collectables.NotShown);
+                var bf = new BinaryFormatter();
+                bf.Serialize(fileStream, savedata);
+            }
+        }
+        public static void LoadSave()
+        {
+            const string Save = "Save.txt";
+            using (FileStream fileStream = File.OpenRead(Save))
+            {
+                var bf = new BinaryFormatter();
+                savedata = bf.Deserialize(fileStream) as SaveData;
+                Player.created = savedata.created;
+                Player.difference = savedata.difference;
+                Player.shield = savedata.shield;
+                Player.doubler = savedata.doubler;
+                Enemy.nap = savedata.nap;
+                level = savedata.Level;
+                round = savedata.Round;
+                Player.Items = savedata.Items;
+                Player.Parts = savedata.Parts;
+                Collectables.amount = savedata.Quantity;
+                Collectables.used = savedata.Used;
+                Player.hp = savedata.Hp;
+                Collectables.NotShown = savedata.NotShown;
+            }
+        }
+        public static void reset()
+        {
+            Player.created = false;
+            Player.difference = false;
+            Player.shield = 0;
+            Player.doubler = false;
+            Enemy.nap = 0;
+            level = 1;
+            round = 1;
+            Player.Items.Clear();
+            Player.Parts.Clear();
+            Collectables.amount[0] = "3";
+            Collectables.amount[1] = "Active";
+            Collectables.amount[2] = "5";
+            Collectables.amount[3] = "Inactive";
+            for (int i = 0; i < Collectables.used.Length; i++)
+            {
+                Collectables.used[i] = false;
+            }
+            Collectables.NotShown = true;
         }
         public static void GameOver()
         {

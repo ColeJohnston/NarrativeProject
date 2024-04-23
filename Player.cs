@@ -12,34 +12,47 @@ namespace ProjectTemp
 {
     internal class Player
     {
+        public static bool created = false;
         public static bool difference;
         static public int hp;
         static public int shield = 0;
         static public List<string> Parts = new List<string>();
-        static List<string> Items = new List<string>();
+        static public List<string> Items = new List<string>();
         public static bool doubler = false;
         internal void CharacterSelect()
         {
             Console.WriteLine("\n\nMake your choice");
+            while (true)
+            {
             Console.WriteLine("[Difference] or [Trade-Off]");
             string selection = Console.ReadLine().ToLower();
             Console.Clear();
-            if (selection == "difference")
-            {
-                Console.WriteLine("You selected Difference, Stay smart");
-                Console.WriteLine("[Press Enter]");
-                Console.ReadLine();
-                Console.Clear();
-                difference = true;
+                if (selection == "difference")
+                {
+                    Console.WriteLine("You selected Difference, Stay smart");
+                    Console.WriteLine("[Press Enter]");
+                    Console.ReadLine();
+                    Console.Clear();
+                    difference = true;
+                    created = true;
+                    break;
+                }
+                else if (selection == "trade-off")
+                {
+                    Console.WriteLine("You selected Trade-Off, Stay strong");
+                    Console.WriteLine("[Press Enter]");
+                    Console.ReadLine();
+                    Console.Clear();
+                    difference = false;
+                    created = true;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid option, try again");
+                }
             }
-            else if(selection == "trade-off")
-            {
-                Console.WriteLine("You selected Trade-Off, Stay strong");
-                Console.WriteLine("[Press Enter]");
-                Console.ReadLine();
-                Console.Clear();
-                difference = false;
-            }
+            
         }
         internal static void RemoveLimbs()
         {
