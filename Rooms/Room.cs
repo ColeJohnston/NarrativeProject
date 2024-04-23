@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 
 namespace ProjectTemp.Rooms
 {
+    enum rooms
+    {
+        CharacterRoom = 1,
+        CaseRoom = 2,
+        NumberRoom = 3,
+        SymbolRoom = 4,
+        Boss = 5
+    }
     internal abstract class Room
     {
         internal abstract void introduction(bool[] beatR, bool[] beatL);
@@ -100,6 +108,8 @@ namespace ProjectTemp.Rooms
                             Console.ReadLine();
                         }
                         break;
+                    case "return":
+                        break;
                 }
             }
             else if (!beatR[1])
@@ -140,9 +150,19 @@ namespace ProjectTemp.Rooms
                 Console.ReadLine();
                 Console.Clear();
                 Player.ShowInventory();
-                Console.WriteLine("\n[Press Enter] to continue to the next room");
-                Console.ReadLine();
+                Console.Write("\n[Press Enter] to continue to the next room");
+                if(level > 1)
+                {
+                Console.WriteLine("or type [return] to go to a previous room");
+                }
+                bool Return = false;
+                Return = Console.ReadLine() == "return";
                 Console.Clear();
+                if (Return)
+                {
+                    Return = false;
+                    Game.ChooseRoom();
+                }
             }
         }
     }
