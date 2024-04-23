@@ -28,7 +28,6 @@ namespace ProjectTemp
             {
                 temp = random.Next(items.Length);
                 chosen[0] = items[temp];
-                chosen[0] = items[1];
             } while (used[temp]);
             used[temp] = true;
             do

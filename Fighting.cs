@@ -19,6 +19,7 @@ namespace ProjectTemp
         {
             int level = Game.level;
             int round = Game.round;
+            Game.ChangeRoom(level);
             switch (level)
             {
                 case 1:
@@ -45,7 +46,6 @@ namespace ProjectTemp
         }
         public static void Fight()
         {
-            Fighting.StartFight();
             int level = Game.level;
             int round = Game.round;
             switch (level)
@@ -59,7 +59,6 @@ namespace ProjectTemp
                 case 2:
                     while (Player.hp > 0 && Enemy.hp > 0)
                     {
-                        Console.WriteLine(Player.Parts[0]);
                         CaE.setword();
                     }
                     break;

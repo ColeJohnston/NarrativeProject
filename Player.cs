@@ -23,7 +23,8 @@ namespace ProjectTemp
             Console.WriteLine("\n\nMake your choice");
             Console.WriteLine("[Difference] or [Trade-Off]");
             string selection = Console.ReadLine().ToLower();
-            if(selection == "difference")
+            Console.Clear();
+            if (selection == "difference")
             {
                 Console.WriteLine("You selected Difference, Stay smart");
                 Console.WriteLine("[Press Enter]");
@@ -42,12 +43,7 @@ namespace ProjectTemp
         }
         internal static void RemoveLimbs()
         {
-            int i = 1;
-            foreach(string part in Parts)
-            {
-                i++;
-            }
-            Console.WriteLine(i);
+            int i = Parts.Count;
             Console.WriteLine("PART 1: " + Parts[0]);
             if(i == 5)
             {
@@ -115,7 +111,7 @@ namespace ProjectTemp
             {
                 Console.WriteLine(item + ", ");
             }
-            Console.WriteLine("\n\nParts:" +
+            Console.WriteLine("\nParts:" +
                 "\n-----");
             foreach(var item in Parts) { Console.WriteLine(item + ", ");}
         }

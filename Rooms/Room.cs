@@ -12,17 +12,20 @@ namespace ProjectTemp.Rooms
         internal abstract void introduction(bool[] beatR, bool[] beatL);
         internal static void complete(bool[] beatR, int level, int round)
         {
+            string choice = "temp";
             string[] parts = { "arms", "legs", "head+torso" };
             if(level != 5)
             {
                 Console.WriteLine($"\nCongrats on beating beast {level}, it only gets harder from here." +
     "\nWould you like to [Continue] to the next room" +
     "\n or stop to [Admire] the room some more");
+                choice = Console.ReadLine();
             }
             else
             {
+                Player.PartAdd(parts[round - 1] + level);
                 string temp;
-                Console.WriteLine("The boss is dead, it seems, and now that he is out of the way, you notice 5 monster shaped holes in the wall...");
+                Console.WriteLine("The boss is dead and delimbed. Now that he is out of the way, you notice 5 monster shaped holes in the wall...");
                 Console.WriteLine("Come to think of it, you've collected many body parts... eww. Would you like to maybe insert those into the slots in the wall?" +
                     "\n or would you like to hold on to those." +
                     "\n[Hold] or [Insert]");
@@ -45,7 +48,6 @@ namespace ProjectTemp.Rooms
                 Console.WriteLine($"\nSince you beat boss {round}/3 you can choose One item from the shop");
                 Collectables.shop();
             }
-            string choice = Console.ReadLine();
             if (!beatR[0])
             {
                 switch (choice)
@@ -123,11 +125,18 @@ namespace ProjectTemp.Rooms
                         break;
                 }
             }
-            Console.WriteLine("You've collected [" + parts[round - 1] + level + "]");
-            Player.PartAdd(parts[round - 1] + level);
-            Player.ShowInventory();
-            Console.WriteLine("\n[Press Enter] to continue to the next room");
-            Console.ReadLine();
+            if (level != 5)
+            {
+                Console.WriteLine("You've collected [" + parts[round - 1] + level + "]");
+                Console.WriteLine("[Press Enter] to See inventory");
+                Player.PartAdd(parts[round - 1] + level);
+                Console.ReadLine();
+                Console.Clear();
+                Player.ShowInventory();
+                Console.WriteLine("\n[Press Enter] to continue to the next room");
+                Console.ReadLine();
+                Console.Clear();
+            }
         }
     }
 }

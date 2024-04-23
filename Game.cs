@@ -27,13 +27,16 @@ namespace ProjectTemp
         static bool[] beatL = new bool[5];
         public static void complete()
         {
+            
             Room.complete(beatR, level, round);
             if(level != 5)
             {
+                beatL[level - 1] = true;
                 level++;
             }
             else
             {
+                beatR[round - 1] = true;
                 level = 1;
                 round++;
             }
@@ -65,7 +68,8 @@ namespace ProjectTemp
             }
             Console.WriteLine("You have arrived. Would you like to [Enter] or [Flee]?");
             string firstchoice = Console.ReadLine().ToLower();
-            if(firstchoice == "flee")
+            Console.Clear();
+            if (firstchoice == "flee")
             {
                 Console.Write("You are a ");
                 Console.ForegroundColor = ConsoleColor.DarkRed;

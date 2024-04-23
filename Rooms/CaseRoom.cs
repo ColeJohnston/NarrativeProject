@@ -17,7 +17,7 @@ namespace ProjectTemp.Rooms
             }
             else if (!beatR[0])
             {
-                Console.WriteLine("\nYou approach the second room, this room is much louder and upon inspecting the walls, " +
+                Console.WriteLine("You approach the second room, this room is much louder and upon inspecting the walls, " +
                     "\nyou see the same letters from before but with a mix of capital and lowercase letters. Just as you realize this, " +
                     "\nyour second challenge appears and begins to speak:");
             }
