@@ -173,6 +173,7 @@ namespace ProjectTemp
                 "\nYou stare at your dad picturing what your life would have been like without him. He notices this and interrupts your thoughts saying " +
                 "\n\"Holy shit you smell bad.\"" +
                 "\nHe's probably right, all of this monster slaying really stank you up");
+            reset();
         }
         public static void CreateSave()
         {
@@ -231,6 +232,7 @@ namespace ProjectTemp
         public static void GameOver()
         {
             Console.WriteLine("You lose");
+            reset();
             Thread.Sleep(1000);
             Environment.Exit(0);
         }
