@@ -20,12 +20,13 @@ namespace ProjectTemp.Rooms
     "\nWould you like to [Continue] to the next room" +
     "\n or stop to [Admire] the room some more");
                 choice = Console.ReadLine();
+                Console.Clear();
             }
             else
             {
                 Player.PartAdd(parts[round - 1] + level);
                 string temp;
-                Console.WriteLine("The boss is dead and delimbed. Now that he is out of the way, you notice 5 monster shaped holes in the wall...");
+                Console.WriteLine("\n\nThe boss is dead and delimbed. Now that he is out of the way, you notice 5 monster shaped holes in the wall...");
                 Console.WriteLine("Come to think of it, you've collected many body parts... eww. Would you like to maybe insert those into the slots in the wall?" +
                     "\n or would you like to hold on to those." +
                     "\n[Hold] or [Insert]");
@@ -35,6 +36,9 @@ namespace ProjectTemp.Rooms
                     Player.RemoveLimbs();
                 }
                 else { Console.WriteLine("Eww"); }
+                Console.WriteLine("[Press Enter]");
+                Console.ReadLine();
+                Console.Clear();
                 Console.WriteLine("The boss had a very comfy bed and now that he is disposed of, You can saftely nap.");
                 Console.WriteLine("Napping restores 50% of your missing hp, but gives you 25% less reading time for future words");
                 Console.WriteLine("Would you like to nap?");
@@ -45,6 +49,9 @@ namespace ProjectTemp.Rooms
                     Player.nap();
                     Console.WriteLine("NEW HP: " + Player.hp);
                 }
+                Console.WriteLine("[Press Enter]");
+                Console.ReadLine();
+                Console.Clear();
                 Console.WriteLine($"\nSince you beat boss {round}/3 you can choose One item from the shop");
                 Collectables.shop();
             }

@@ -27,9 +27,7 @@ namespace ProjectTemp.Enemies
         }
         internal override void setwordLength(int level, int round)
         {
-            Console.WriteLine("Word length: " + level);
             WordLength = level + (5 * (round - 1));
-            Console.WriteLine("Word Length: " + WordLength);
         }
     }
 }

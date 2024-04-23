@@ -44,7 +44,6 @@ namespace ProjectTemp
         internal static void RemoveLimbs()
         {
             int i = Parts.Count;
-            Console.WriteLine("PART 1: " + Parts[0]);
             if(i == 5)
             {
                 if (Parts[0] == "arms1")
@@ -105,15 +104,19 @@ namespace ProjectTemp
         }
         internal static void ShowInventory()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Consumables" +
                             "\n-----------");
+            Console.ResetColor();
             foreach (var item in Items)
             {
                 Console.WriteLine(item + ", ");
             }
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nParts:" +
                 "\n-----");
-            foreach(var item in Parts) { Console.WriteLine(item + ", ");}
+            Console.ResetColor();
+            foreach (var item in Parts) { Console.WriteLine(item + ", ");}
         }
         internal static void UseItem()
         {

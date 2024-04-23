@@ -103,7 +103,7 @@ namespace ProjectTemp
         }
         public static void showHp()
         {
-            Console.WriteLine("PLAYER HP: " + Player.hp + "\t \t \tENEMY HP: " + Enemy.hp);
+            Console.WriteLine("\nPLAYER HP: " + Player.hp + "\t \t \tENEMY HP: " + Enemy.hp);
             if(Player.shield > 0)
             {
                 Console.WriteLine("SHIELD: " + Player.shield);
@@ -154,9 +154,22 @@ namespace ProjectTemp
                     break;
             }
         }
+        public static void Win()
+        {
+            Console.WriteLine("Your father is there, he is all bones. Extremely malnourished. " +
+                "\nYou rush to him as he shows no signs of life. You stare intently at his chest, yet there is no movement. " +
+                "\nNo breathing, no heartbeat. You lose all remaining hope you had. Did you take too long? No, you did your best. " +
+                "\nAll these thoughts and doubts rushing through your head as you stare at your deceased father when all of a sudden, one breath… " +
+                "\nOne expansion in his chest and your heart is filled with hope again. He is alive, you can still rescue him. " +
+                "\nYou drag him out of this horrid cave and bring him to the nearest hospital. You were just in time. " +
+                "\nYou stare at your dad picturing what your life would have been like without him. He notices this and interrupts your thoughts saying " +
+                "\n\"Holy shit you smell bad.\"" +
+                "\nHe's probably right, all of this monster slaying really stank you up");
+        }
         public static void GameOver()
         {
             Console.WriteLine("You lose");
+            Thread.Sleep(1000);
             Environment.Exit(0);
         }
     }

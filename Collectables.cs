@@ -29,13 +29,11 @@ namespace ProjectTemp
                 temp = random.Next(items.Length);
                 chosen[0] = items[temp];
             } while (used[temp]);
-            used[temp] = true;
             do
             {
                 temp = random.Next(items.Length);
                 chosen[1] = items[temp];
-            } while (chosen[1] == chosen[0] && used[temp]);
-            used[temp] = true;
+            } while (chosen[1] == chosen[0] || used[temp]);
             Console.WriteLine($"({amount[Array.IndexOf(items, chosen[0])]}) {chosen[0]} - {description[Array.IndexOf(items, chosen[0])]}");
             Console.WriteLine($"({amount[Array.IndexOf(items, chosen[1])]}) {chosen[1]} - {description[Array.IndexOf(items, chosen[1])]}");
             Console.WriteLine("Please choose one");
@@ -44,6 +42,7 @@ namespace ProjectTemp
                 string choice = Console.ReadLine();
                 if (chosen.Any(x => x == choice.ToLower()))
                 {
+                    used[Array.IndexOf(items, choice)] = true;
                     Console.WriteLine("Item added " + choice);
                     if(NotShown)
                     {
@@ -59,6 +58,9 @@ namespace ProjectTemp
                 }
                 else { Console.WriteLine("Invalid choice, try again"); }
             }
+            Console.WriteLine("[Press Enter]");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }

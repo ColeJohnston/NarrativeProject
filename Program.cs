@@ -21,5 +21,6 @@ class Program
             Fighting.StartFight();
             Fighting.Fight();
         }
+        Game.Win();
     }
 }

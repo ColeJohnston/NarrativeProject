@@ -91,7 +91,6 @@ namespace ProjectTemp.Enemies
                 dealt = 0;
                 recieved = 0;
             }
-            Console.WriteLine();
         }
         internal static void updatehp(int damage)
         {
