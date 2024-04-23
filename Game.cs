@@ -228,6 +228,7 @@ namespace ProjectTemp
                 Collectables.used[i] = false;
             }
             Collectables.NotShown = true;
+            CreateSave();
         }
         public static void GameOver()
         {

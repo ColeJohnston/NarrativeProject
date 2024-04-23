@@ -21,6 +21,7 @@ namespace ProjectTemp
         public static bool doubler = false;
         internal void CharacterSelect()
         {
+
             Console.WriteLine("\n\nMake your choice");
             while (true)
             {

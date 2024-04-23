@@ -23,7 +23,8 @@ public class SaveData
     public bool[] Used;
     public int Hp;
     public bool NotShown;
-    public SaveData(bool created, bool difference, int shield, bool doubler, int nap, int level, int round, List<string> items, List<string> parts, string[] quantity, bool[] used, int hp, bool notShown)
+    public SaveData(bool created, bool difference, int shield, bool doubler, int nap, int level, int round, List<string> items, List<string> parts, 
+        string[] quantity, bool[] used, int hp, bool notShown)
     {
         this.created = created;
         this.difference = difference;
@@ -61,7 +62,6 @@ public class SaveData
                 if (choice == "new game")
                 {
                     Game.reset();
-                    Game.CreateSave();
                     Console.Clear();
                     break;
                 }
